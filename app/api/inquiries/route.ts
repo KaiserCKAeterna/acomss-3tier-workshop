@@ -80,15 +80,27 @@ export async function POST(request: Request): Promise<NextResponse> {
     );
   }
 
-  const supabase = createServerSupabaseClient();
-
-  // --- 2. Listing must exist and be published/active at submission time ---
-  // (4.3, 4.4). RLS governs visibility, so an unpublished listing is invisible
-  // to an anon/USER submitter and is correctly rejected as invalid. We also
-  // guard against a missing id up front.
+  // --- 2. Validate the listing ID before accessing Supabase. ---
   if (!isNonEmpty(listingId)) {
     return NextResponse.json({ error: "Invalid listing." }, { status: 400 });
   }
+
+  // Day 1 works without Supabase. Inquiry submissions become available
+  // after participants configure their Supabase project on Day 2.
+  if (
+    !process.env.NEXT_PUBLIC_SUPABASE_URL ||
+    !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  ) {
+    return NextResponse.json(
+      {
+        error:
+          "Inquiry submissions are not available yet. Please connect Supabase during Session 2.",
+      },
+      { status: 503 },
+    );
+  }
+
+  const supabase = createServerSupabaseClient();
 
   const { data: listing, error: listingError } = await supabase
     .from("listings")
@@ -113,15 +125,10 @@ export async function POST(request: Request): Promise<NextResponse> {
   const resolution = await getRoleFromSession();
   const ownerId = resolution.authenticated ? resolution.userId : null;
 
-  // --- 3. Sanitize free text (4.6) and insert with status NEW (4.2). ---
-  // The id is created here instead of read back after the insert. Reading the
-  // row back would need SELECT access, and RLS (correctly) does not let an
-  // anonymous visitor read inquiries. So we never ask for the row back.
-  const inquiryId = crypto.randomUUID();
+
   const { error: insertError } = await supabase
     .from("inquiries")
     .insert({
-      id: inquiryId,
       listing_id: listingId,
       owner_id: ownerId,
       customer_name: sanitizeText(name),
@@ -132,11 +139,12 @@ export async function POST(request: Request): Promise<NextResponse> {
     });
 
   if (insertError) {
+    console.error("Inquiry insert failed:", insertError);
     return NextResponse.json(
-      { error: "Something went wrong. Please try again." },
-      { status: 500 },
+      { error: "We couldn't send your request. Please try again." },
+      { status: 500 }
     );
   }
 
-  return NextResponse.json({ inquiryId }, { status: 201 });
+  return NextResponse.json({ success: true }, { status: 201 });
 }
