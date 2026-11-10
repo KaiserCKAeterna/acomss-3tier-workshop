@@ -73,14 +73,4 @@ export const listings: Listing[] = [
     inquiry_type: "DEMO",
     image_url: "/images/placeholder-custom-software.svg",
   },
-   {
-    slug: "banorant-inventory-app",
-    title: "Banorant Inventory App",
-    category: "CUSTOM_SOFTWARE",
-    description:
-      "A tailored inventory and ordering application built around your workflow. " +
-      "Book a live demo to see a working example.",
-    inquiry_type: "DEMO",
-    image_url: "/images/banorant.png",
-  },
 ];
