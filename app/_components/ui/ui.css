@@ -423,8 +423,7 @@
 }
 
 /* ============================================================= Card grid ----
-   Responsive, content-sized columns. Cards size to content rather than being
-   forced into a uniform equal-height 3-column grid (Requirement 15.10). */
+   Responsive columns. Cards in the same row share the same height. */
 .card-grid {
   list-style: none;
   margin: 0;
@@ -432,7 +431,16 @@
   display: grid;
   gap: var(--space-4);
   grid-template-columns: 1fr;
-  align-items: start;
+  align-items: stretch;
+}
+
+/* Make every card in a row the same height, even when one title wraps
+   to two lines. */
+.card-grid > li {
+  display: flex;
+}
+.card-grid > li > .card {
+  flex: 1;
 }
 
 @media (min-width: 560px) {
