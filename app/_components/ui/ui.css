@@ -59,6 +59,7 @@
 }
 .btn--primary:hover:not(:disabled):not([aria-disabled="true"]) {
   background: var(--accent-strong);
+  color: var(--on-accent); /* keep text white when the button is a link */
 }
 .btn--primary:active:not(:disabled):not([aria-disabled="true"]) {
   background: var(--accent-strong);
@@ -73,6 +74,7 @@
 }
 .btn--secondary:hover:not(:disabled):not([aria-disabled="true"]) {
   background: var(--surface-2);
+  color: var(--text);
   border-color: var(--border-strong);
 }
 .btn--secondary:active:not(:disabled):not([aria-disabled="true"]) {
@@ -87,6 +89,7 @@
 }
 .btn--ghost:hover:not(:disabled):not([aria-disabled="true"]) {
   background: var(--surface-2);
+  color: var(--text);
 }
 .btn--ghost:active:not(:disabled):not([aria-disabled="true"]) {
   background: var(--surface-2);
