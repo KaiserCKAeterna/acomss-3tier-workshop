@@ -10,9 +10,9 @@ You do not need to write the application from scratch. You will make your own co
 
 Open the step-by-step workshop guide:
 
-[Workshop Guide](docs/workshop/guide/README.md)
+[Workshop Guide](https://evergreen-pen-f2c.notion.site/Building-Technology-with-Purpose-Introduction-to-Building-a-3-Tier-Website-40dcb4c6989f80a4ad24c553e3b8e80e?source=copy_link)
 
-Complete the [Prerequisites](docs/workshop/guide/Prerequisites.md) before Session 1.
+Complete the [Prerequisites]([docs/workshop/guide/Prerequisites.md](https://app.notion.com/p/Pre-requisites-410cb4c6989f80259951c0f4a0d87ec1?source=copy_link)) before Session 1.
 
 ## What You Will Customize
 
