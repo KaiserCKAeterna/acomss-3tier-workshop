@@ -1,0 +1,162 @@
+/**
+ * theme.css — DESIGN TOKEN SOURCE OF TRUTH (infrastructure; students do NOT edit)
+ *
+ * This is the single place raw design values live. Every component and page
+ * draws color, type, spacing, radius, shadow, and motion from these tokens —
+ * nothing hardcodes a design value outside this file (Requirement 15.1).
+ *
+ * Look: a white, black-and-white site. Light is the default for everyone.
+ * A dark theme with the same tokens (strict parity, Requirement 15.2) is kept
+ * for anyone who wants it: add data-theme="dark" to <html> in app/layout.tsx.
+ *
+ * Palette discipline (Requirement 15.3): one accent (near-black) plus a
+ * neutral gray ramp. Color is only used for record statuses (StatusBadge). Text/surface and interactive
+ * pairs are chosen to meet WCAG 2.1 AA contrast (≥4.5:1 body text,
+ * ≥3:1 large text / UI borders) in both themes.
+ *
+ * Students customize copy/images/branding in content/* and public/images/*;
+ * a changed brand color only means overriding --accent here or in content —
+ * the scale and primitives absorb it without breaking layout.
+ */
+
+:root {
+  color-scheme: light;
+
+  /* ---- Color: accent (black-and-white look) ---- */
+  --accent: #18181b; /* primary buttons, active tab, current-page bar */
+  --accent-strong: #3f3f46; /* hover/active for --accent fills */
+  --accent-soft: #f4f4f5; /* tinted accent surface */
+  --accent-2: #52525b; /* second accent, used sparingly */
+  --on-accent: #ffffff; /* text/icon on accent fills (17.7:1) */
+  --on-accent-soft: #18181b; /* text on --accent-soft */
+
+  /* ---- Color: neutrals + semantic roles ---- */
+  --bg: #ffffff; /* page background */
+  --surface: #ffffff; /* cards, nav, raised panels */
+  --surface-2: #f4f4f5; /* nested/alt surface, table heads, hover rows */
+  --border: #e4e4e7; /* 1px borders, dividers */
+  --border-strong: #d4d4d8; /* hover/emphasized borders */
+  --border-input: #82828b; /* form field edges (3.8:1 so fields are visible) */
+  --text: #18181b; /* primary text (17.7:1) */
+  --muted: #52525b; /* secondary text (7:1+) */
+  --link: #18181b; /* links are dark text + underline, not a color */
+  --link-hover: #3f3f46;
+
+  /* ---- Color: status roles (StatusBadge) ---- */
+  /* Each pair = tinted surface + readable foreground. */
+  --status-pending-bg: #fdf1cf;
+  --status-pending-fg: #7a5a00;
+  --status-approved-bg: #d7f3e3;
+  --status-approved-fg: #0a6b43;
+  --status-rejected-bg: #fcdfe6;
+  --status-rejected-fg: #a01834;
+  --status-new-bg: #e4e4e7;
+  --status-new-fg: #27272a;
+  --status-inprogress-bg: #ece1fb;
+  --status-inprogress-fg: #5b3a9e;
+  --status-closed-bg: #f4f4f5;
+  --status-closed-fg: #52525b;
+  --status-verified-bg: #d4f3ee;
+  --status-verified-fg: #0a6b63;
+
+  /* ---- Focus ring (visible on every interactive element) ---- */
+  --ring: color-mix(in srgb, var(--accent) 45%, transparent);
+
+  /* ---- Typography: scale + line-heights + tracking ---- */
+  --font-sans: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  --text-xs: 0.78rem;
+  --text-sm: 0.88rem;
+  --text-base: 1rem;
+  --text-lg: 1.15rem;
+  --text-xl: 1.4rem;
+  --text-2xl: 1.8rem;
+  --text-3xl: clamp(2rem, 4vw, 2.9rem);
+  --leading-tight: 1.15; /* headings */
+  --leading-snug: 1.35;
+  --leading-normal: 1.6; /* body */
+  --tracking-tight: -0.02em; /* headings */
+  --tracking-normal: 0;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ---- Spacing scale (single ramp; no ad-hoc px in components) ---- */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* ---- Radius (unified; two steps + pill) ---- */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-pill: 999px;
+
+  /* ---- Shadow: subtle, border-driven depth ---- */
+  --shadow-none: none;
+  --shadow-sm: 0 1px 2px rgba(24, 24, 27, 0.06);
+  --shadow-md: 0 8px 24px rgba(24, 24, 27, 0.1);
+
+  /* ---- Motion: fast, functional (150–200ms ease-out) ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 150ms;
+  --duration-base: 180ms;
+  --transition: var(--duration-base) var(--ease-out);
+
+  /* ---- Layout ---- */
+  --max-width: 1040px;
+}
+
+/* ---- Dark theme (opt-in): same roles, different values ---- */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --accent: #fafafa;
+  --accent-strong: #d4d4d8;
+  --accent-soft: #27272a;
+  --accent-2: #a1a1aa;
+  --on-accent: #18181b;
+  --on-accent-soft: #fafafa;
+
+  --bg: #09090b;
+  --surface: #18181b;
+  --surface-2: #27272a;
+  --border: #3f3f46;
+  --border-strong: #52525b;
+  --border-input: #7c7c85;
+  --text: #fafafa;
+  --muted: #a1a1aa;
+  --link: #fafafa;
+  --link-hover: #d4d4d8;
+
+  --status-pending-bg: #3a2f0f;
+  --status-pending-fg: #f4d78a;
+  --status-approved-bg: #123526;
+  --status-approved-fg: #7fe3b0;
+  --status-rejected-bg: #3a1620;
+  --status-rejected-fg: #f3a4b5;
+  --status-new-bg: #3f3f46;
+  --status-new-fg: #e4e4e7;
+  --status-inprogress-bg: #2d2140;
+  --status-inprogress-fg: #c8aaf5;
+  --status-closed-bg: #27272a;
+  --status-closed-fg: #a1a1aa;
+  --status-verified-bg: #0f3330;
+  --status-verified-fg: #76e2d2;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Respect reduced-motion: keep transitions near-instant but non-jarring. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 1ms;
+    --duration-base: 1ms;
+  }
+}
