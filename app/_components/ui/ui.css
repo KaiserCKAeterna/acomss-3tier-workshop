@@ -633,3 +633,54 @@
   height: var(--space-4);
   accent-color: var(--accent);
 }
+
+/* ============================================================= Theme toggle
+   Sliding light/dark switch in the nav. The knob position and icon follow the
+   data-theme attribute on <html>, so they are right on first paint. */
+.theme-toggle {
+  position: relative;
+  flex-shrink: 0;
+  width: 48px;
+  height: 26px;
+  padding: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  background: var(--toggle-track);
+  cursor: pointer;
+  transition: background-color var(--transition), border-color var(--transition);
+}
+.theme-toggle:hover {
+  border-color: var(--border-input);
+}
+.theme-toggle:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--ring);
+}
+
+.theme-toggle__knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--toggle-knob);
+  color: var(--toggle-icon);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), background-color var(--transition);
+}
+:root[data-theme="dark"] .theme-toggle__knob {
+  transform: translateX(22px);
+}
+
+.theme-toggle__icon--moon {
+  display: none;
+}
+:root[data-theme="dark"] .theme-toggle__icon--sun {
+  display: none;
+}
+:root[data-theme="dark"] .theme-toggle__icon--moon {
+  display: block;
+}

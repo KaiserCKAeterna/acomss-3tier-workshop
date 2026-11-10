@@ -3,6 +3,10 @@ import "./globals.css";
 import SiteNav from "./_components/SiteNav";
 import { site } from "@/content/site";
 
+// Runs before the page paints. Applies the visitor's saved light/dark choice
+// so dark mode never flashes white first. Light is the default.
+const themeScript = `try{if(localStorage.getItem("theme")==="dark"){document.documentElement.setAttribute("data-theme","dark")}}catch(e){}`;
+
 export const metadata: Metadata = {
   title: site.name,
   description: site.tagline,
@@ -18,7 +22,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    // suppressHydrationWarning: the script below may add data-theme="dark"
+    // to <html> before React loads. That is expected, not an error.
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>
         <SiteNav />
         <main id="main">{children}</main>

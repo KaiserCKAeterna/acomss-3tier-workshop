@@ -4,6 +4,7 @@ import { site } from "@/content/site";
 import { signOutAction } from "@/app/auth/actions";
 import { getRoleFromSession, type RoleResolution } from "@/lib/auth";
 import { NavLinks, type NavItem } from "./NavLinks";
+import { ThemeToggle } from "./ThemeToggle";
 
 /**
  * SiteNav — shared navigation rendered on every page via the root layout.
@@ -55,6 +56,7 @@ export default async function SiteNav() {
               Sign in
             </Link>
           )}
+          <ThemeToggle />
         </div>
       </div>
     </nav>

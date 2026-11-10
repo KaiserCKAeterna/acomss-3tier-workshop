@@ -21,6 +21,8 @@
  *     long text across lines.
  *   - Apostrophes are fine ("We're open"). For a quote inside your text, use
  *     single quotes ("Our 'quick start' plan").
+ *   - Every slug must be different. When you copy a block to add a listing,
+ *     change its slug first. Two listings with the same slug open the same page.
  *   - Red error screen after saving? You probably deleted a quote or a comma.
  *     Press Ctrl+Z (Cmd+Z on Mac), save, and it comes back.
  */
@@ -70,5 +72,15 @@ export const listings: Listing[] = [
       "Book a live demo to see a working example.",
     inquiry_type: "DEMO",
     image_url: "/images/placeholder-custom-software.svg",
+  },
+   {
+    slug: "banorant-inventory-app",
+    title: "Banorant Inventory App",
+    category: "CUSTOM_SOFTWARE",
+    description:
+      "A tailored inventory and ordering application built around your workflow. " +
+      "Book a live demo to see a working example.",
+    inquiry_type: "DEMO",
+    image_url: "/images/banorant.png",
   },
 ];

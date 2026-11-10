@@ -22,13 +22,14 @@
 :root {
   color-scheme: light;
 
-  /* ---- Color: accent (black-and-white look) ---- */
-  --accent: #18181b; /* primary buttons, active tab, current-page bar */
-  --accent-strong: #3f3f46; /* hover/active for --accent fills */
-  --accent-soft: #f4f4f5; /* tinted accent surface */
+  /* ---- Color: accent (dark navy brand) ---- */
+  --accent: #0b1642; /* primary buttons, active tab, current-page bar */
+  --accent-strong: #1c2b6b; /* hover/active for --accent fills */
+  --accent-soft: #eef1fa; /* tinted accent surface */
   --accent-2: #52525b; /* second accent, used sparingly */
-  --on-accent: #ffffff; /* text/icon on accent fills (17.7:1) */
-  --on-accent-soft: #18181b; /* text on --accent-soft */
+  --on-accent: #ffffff; /* text/icon on accent fills (17.8:1) */
+  --on-accent-soft: #0b1642; /* text on --accent-soft */
+  
 
   /* ---- Color: neutrals + semantic roles ---- */
   --bg: #ffffff; /* page background */
@@ -39,8 +40,8 @@
   --border-input: #82828b; /* form field edges (3.8:1 so fields are visible) */
   --text: #18181b; /* primary text (17.7:1) */
   --muted: #52525b; /* secondary text (7:1+) */
-  --link: #18181b; /* links are dark text + underline, not a color */
-  --link-hover: #3f3f46;
+  --link: #0b1642; /* links: navy text + underline */
+  --link-hover: #1c2b6b;
 
   /* ---- Color: status roles (StatusBadge) ---- */
   /* Each pair = tinted surface + readable foreground. */
