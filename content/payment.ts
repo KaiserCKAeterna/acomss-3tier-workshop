@@ -27,9 +27,9 @@ export interface PaymentConfig {
 }
 
 export const payment: PaymentConfig = {
-  label: "Scan to pay via GCash",
+  label: "Scan to pay via GCash [Not Rickroll]",
   accountName: "Acme Consulting",
-  qrImageUrl: "/images/gcash-qr.png",
+  qrImageUrl: "/images/qrcode.png",
   instructions:
     "Scan the QR with your GCash app, pay the amount, then upload your receipt " +
     "so we can verify it.",

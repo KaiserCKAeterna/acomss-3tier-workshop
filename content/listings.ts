@@ -54,23 +54,53 @@ export const listings: Listing[] = [
     image_url: "/images/placeholder-consulting.svg",
   },
   {
-    slug: "business-website-build",
-    title: "Business Website Build",
+    slug: "legend",
+    title: "Rick",
     category: "WEB_DEV",
     description:
-      "A fast, modern marketing website with a content system you can update " +
-      "yourself. Request a quote and we will scope it with you.",
+      "He never gonna give you up, never gonna let you down. " +
+      "Never gonna run around and hurt you.",
     inquiry_type: "QUOTE",
-    image_url: "/images/placeholder-web-dev.svg",
+    image_url: "/images/legend.jpg",
   },
   {
-    slug: "inventory-management-app",
-    title: "Custom Inventory Management App",
+    slug: "samurai",
+    title: "Johnny Silverhand",
     category: "CUSTOM_SOFTWARE",
     description:
-      "A tailored inventory and ordering application built around your workflow. " +
-      "Book a live demo to see a working example.",
+      "Wake up, Samurai " +
+      "Let's infiltrate Arasaka",
     inquiry_type: "DEMO",
-    image_url: "/images/placeholder-custom-software.svg",
+    image_url: "/images/hell-yeah.jpg",
+  },
+  {
+    slug: "krystal-fox",
+    title: "Krystal Fox",
+    category: "CUSTOM_SOFTWARE",
+    description:
+      "Blue Vixen is posing" +
+      "",
+    inquiry_type: "DEMO",
+    image_url: "/images/Krystal.png",
+  },
+  {
+    slug: "freya-crescent",
+    title: "Freya Crescent",
+    category: "CUSTOM_SOFTWARE",
+    description:
+      "Freya from Final Fantasy" +
+      "",
+    inquiry_type: "DEMO",
+    image_url: "/images/Freya.png",
+  },
+  {
+    slug: "ultramarines",
+    title: "Ultramarines",
+    category: "CUSTOM_SOFTWARE",
+    description:
+      "Courage and Honour!" +
+      " In the name of the Primarch!",
+    inquiry_type: "DEMO",
+    image_url: "/images/trio-of-ultramarines-base.jpg",
   },
 ];

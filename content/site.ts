@@ -40,14 +40,14 @@ export interface SiteContent {
 }
 
 export const site: SiteContent = {
-  name: "Acme Consulting",
-  headline: "Software and consulting that fits your business",
+  name: "The Kollektiv",
+  headline: "Central Neural Network System created by Professor Dmitry Sechenov",
   tagline: "Web development, custom software, and expert IT consulting.",
   intro:
     "We help teams ship the right software. Browse our catalog to see what we " +
     "offer, then send us a demo request, a quote request, or a general inquiry. " +
     "No account needed to get in touch.",
   catalogCtaLabel: "Browse the catalog",
-  heroImage: "/images/home-hero.jpg",
-  heroImageAlt: "A team working together at a desk with laptops and notes",
+  heroImage: "/images/Renamon on vacation.png",
+  heroImageAlt: "Renamon leaning on the railings while looking beyond horizon",
 };
