@@ -44,14 +44,14 @@ export interface Listing {
 
 export const listings: Listing[] = [
   {
-    slug: "it-strategy-consulting",
-    title: "IT Strategy Consulting",
+    slug: "prototype",
+    title: "Alex Mercer",
     category: "CONSULTING",
     description:
-      "Work with our consultants to map your technology roadmap, assess risk, " +
-      "and plan the systems your business needs over the next 12 months.",
+      "'My name is Alex Mercer. I'm the reason for all of this. They call me a killer, a monster, a terrorist... I'm all of these things.'" +
+      "",
     inquiry_type: "INQUIRE",
-    image_url: "/images/placeholder-consulting.svg",
+    image_url: "/images/074e1517cb_alex-mercer-prototype.webp",
   },
   {
     slug: "legend",
